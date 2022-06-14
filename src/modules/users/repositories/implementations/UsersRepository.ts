@@ -35,7 +35,7 @@ class UsersRepository implements IUsersRepository {
   turnAdmin(receivedUser: User): User {
     const user = this.findById(receivedUser.id);
     if (user) {
-      user.admin = true;
+      user.admin = !user.admin;
       user.updated_at = new Date();
     }
     return user;
